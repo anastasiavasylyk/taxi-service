@@ -1,10 +1,6 @@
 # TAXI-SERVICE 🚕
 ## 🖊️ Description
 This is a simple application that allows you to work with a taxi service. This app follows SOLID principles and based on N-tier architecture. It supports registration, authentication, and all CRUD-based operations. The technologies that I used in this project made it possible to realize all the functionality that was conceived.
-## 👀 Table of contents
-* [How to Install and Run the Project](#how-to-install-and-run-the-project)
-* [Technologies](#technologies)
-* [Features](#features)
 ## 🏃 How to Install and Run the Project
 1. Install JDK v11 or later
 2. Clone this project to your JDK
