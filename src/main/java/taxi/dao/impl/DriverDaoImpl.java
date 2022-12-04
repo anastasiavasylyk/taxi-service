@@ -1,4 +1,4 @@
-package taxi.dao;
+package taxi.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import taxi.dao.DriverDao;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
 import taxi.lib.Inject;
@@ -38,8 +39,8 @@ public class DriverDaoImpl implements DriverDao {
             }
             return driver;
         } catch (SQLException e) {
-            throw new DataProcessingException("Couldn't create "
-                    + driver + ". ", e);
+            throw new DataProcessingException("Can't create driver "
+                    + driver, e);
         }
     }
 
@@ -56,7 +57,7 @@ public class DriverDaoImpl implements DriverDao {
             }
             return Optional.ofNullable(driver);
         } catch (SQLException e) {
-            throw new DataProcessingException("Couldn't get driver by id " + id, e);
+            throw new DataProcessingException("Can't get driver by id " + id, e);
         }
     }
 
@@ -72,8 +73,7 @@ public class DriverDaoImpl implements DriverDao {
             }
             return drivers;
         } catch (SQLException e) {
-            throw new DataProcessingException("Couldn't get a list of drivers from driversDB.",
-                    e);
+            throw new DataProcessingException("Can't get all drivers", e);
         }
     }
 
@@ -91,8 +91,7 @@ public class DriverDaoImpl implements DriverDao {
             statement.executeUpdate();
             return driver;
         } catch (SQLException e) {
-            throw new DataProcessingException("Couldn't update "
-                    + driver + " in driversDB.", e);
+            throw new DataProcessingException("Can't update driver " + driver, e);
         }
     }
 
@@ -104,7 +103,7 @@ public class DriverDaoImpl implements DriverDao {
             statement.setLong(1, id);
             return statement.executeUpdate() > 0;
         } catch (SQLException e) {
-            throw new DataProcessingException("Couldn't delete driver with id " + id, e);
+            throw new DataProcessingException("Can't delete driver by id " + id, e);
         }
     }
 
@@ -121,7 +120,7 @@ public class DriverDaoImpl implements DriverDao {
             }
             return Optional.ofNullable(driver);
         } catch (SQLException e) {
-            throw new DataProcessingException("Couldn't find driver with " + login + " login", e);
+            throw new DataProcessingException("Can't find driver with " + login + " login", e);
         }
     }
 

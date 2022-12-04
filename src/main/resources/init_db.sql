@@ -1,5 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS `taxi_db`;
-USE `taxi_db`;
+CREATE SCHEMA IF NOT EXISTS `taxi_service`;
+USE `taxi_service`;
 
 -- ----------------------------
 -- Table structure for drivers
@@ -8,8 +8,8 @@ DROP TABLE IF EXISTS `drivers`;
 CREATE TABLE `drivers`  (
                             `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
                             `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `license_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `login` VARCHAR(45) NOT NULL,
+                            `license_number` VARCHAR(45) UNIQUE CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                            `login` VARCHAR(45) UNIQUE NOT NULL,
                             `password` VARCHAR(45) NOT NULL,
                             `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
                             PRIMARY KEY (`id`) USING BTREE
@@ -54,5 +54,3 @@ CREATE TABLE `cars_drivers`  (
                                  CONSTRAINT `car_id` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
                                  CONSTRAINT `driver_id` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 )
-
-SET FOREIGN_KEY_CHECKS = 1;

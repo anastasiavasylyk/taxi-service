@@ -70,7 +70,8 @@ public class Car {
             return false;
         }
         Car car = (Car) o;
-        return Objects.equals(id, car.id) && Objects.equals(model, car.model)
+        return Objects.equals(id, car.id)
+                && Objects.equals(model, car.model)
                 && Objects.equals(manufacturer, car.manufacturer)
                 && Objects.equals(drivers, car.drivers);
     }

@@ -1,4 +1,4 @@
-package taxi.dao;
+package taxi.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import taxi.dao.CarDao;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
 import taxi.lib.Inject;
@@ -64,7 +65,7 @@ public class CarDaoImpl implements CarDao {
                 car = parseCarFromResultSet(resultSet);
             }
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't get car by id: " + id, e);
+            throw new DataProcessingException("Can't get car by id " + id, e);
         }
         if (car != null) {
             car.setDrivers(getAllDriversByCarId(car.getId()));
@@ -208,7 +209,7 @@ public class CarDaoImpl implements CarDao {
             }
             return drivers;
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't get all drivers by car id" + carId, e);
+            throw new DataProcessingException("Can't get all drivers by car id " + carId, e);
         }
     }
 
