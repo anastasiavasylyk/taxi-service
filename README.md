@@ -56,12 +56,13 @@ The project is based on the n-tier architecture, which also follows the principl
 ![fix tomcat](images/fixTomcat.png)
 
 Select **project-name:war-exploded**
+
 5. Delete text from Application context
 
 ![delete context](images/deleteContext.png)
 
 Just leave it empty
 
-5. Click OK
+6. Click OK
 
 Back to [How to Install and Run the Project](#how-to-install-and-run-the-project)
